@@ -1,10 +1,455 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Hello Hoetzin Coding</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dealership Landing Page</title>
+  <style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #FFEDF3;
+}
+ 
+/* Section 1: About */
+.about-section {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 40px 20px;
+  align-items: center;
+  background-color: #ffffff;
+}
+ 
+.about-image,
+.about-text {
+  flex: 1 1 300px;
+  padding: 10px;
+}
+ 
+.about-image img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 8px;
+}
+ 
+.about-text h2 {
+  margin-top: 0;
+  color: #0ABAB5;
+}
+ 
+.about-text p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+}
+ 
+/* Section 2: New Arrivals */
+.new-arrivals {
+  padding: 40px 20px;
+  background-color: #ffffff;
+}
+ 
+.new-arrivals h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #0ABAB5;
+}
+ 
+.car-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+ 
+.car-card {
+  text-decoration: none;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+  background-color: #f8fdfb;
+}
+ 
+.car-card:hover {
+  transform: scale(1.02);
+}
+ 
+.car-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+ 
+.car-card-content {
+  padding: 15px;
+}
+ 
+.car-card h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: #0ABAB5;
+}
+ 
+.car-card p {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+}
+ 
+/* Section 3: Testimonials */
+.testimonials {
+  padding: 40px 20px;
+  background-color: #ADEED9;
+}
+ 
+.testimonials h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #0ABAB5;
+}
+ 
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+ 
+.testimonial-card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  border: 1px solid #56DFCF;
+}
+ 
+.testimonial-card h4 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  color: #0ABAB5;
+}
+ 
+.testimonial-card p {
+  font-size: 14px;
+  color: #444;
+  margin: 0;
+}
+ 
+/* Section 4: Services */
+.services {
+  padding: 40px 20px;
+  background-color: #ffffff;
+}
+ 
+.services h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #0ABAB5;
+}
+ 
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+ 
+.service-card {
+  background-color: #f2fdfc;
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid #56DFCF;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+ 
+.service-icon {
+  font-size: 40px;
+  margin-bottom: 15px;
+  color: #0ABAB5;
+}
+ 
+.service-card h4 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: #0ABAB5;
+}
+ 
+.service-card p {
+  font-size: 14px;
+  color: #555;
+  margin: 0;
+}
+ 
+/* Section 5: Contact */
+.contact {
+  padding: 40px 20px;
+  background-color: #ADEED9;
+}
+ 
+.contact h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #0ABAB5;
+}
+ 
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+ 
+.contact-form label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #0ABAB5;
+}
+ 
+.contact-form input,
+.contact-form textarea {
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+ 
+.contact-form button {
+  padding: 12px;
+  background-color: #0ABAB5;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+ 
+.contact-form button:hover {
+  background-color: #09928e;
+}
+ 
+/* Footer */
+.footer {
+  background-color: #0ABAB5;
+  color: #fff;
+  padding: 30px 20px 15px;
+  text-align: center;
+}
+ 
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 0 auto 20px;
+  gap: 15px;
+}
+ 
+.footer-links,
+.footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+ 
+.footer a {
+  color: #e8fdfc;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+ 
+.footer a:hover {
+  color: #ffffff;
+}
+ 
+.footer-bottom {
+  font-size: 13px;
+  color: #d0f8f7;
+}
+ 
+@media (max-width: 768px) {
+  .car-card img {
+    height: 200px;
+  }
+}
+  </style>
 </head>
 <body>
-    <h1>Hello Hoetzin Coding</h1>
+ 
+  <!-- Section 1: About the Company -->
+  <section class="about-section">
+    <div class="about-image">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQwKLNJ56zutM1pdBJA7WsE-mCLCAElUCvTg&s" alt="About Us" />
+    </div>
+    <div class="about-text">
+      <h2>About Our Dealership</h2>
+      <p>
+        Welcome to our dealership! We have been providing top-quality vehicles and unmatched customer service for over a decade. Whether you're looking for a brand new car or a reliable pre-owned vehicle, our experienced team is here to help you find the perfect fit for your lifestyle and budget. Our commitment to honesty, transparency, and satisfaction makes us a trusted name in the automotive industry.
+      </p>
+    </div>
+  </section>
+ 
+  <!-- Section 2: New Arrivals -->
+  <section class="new-arrivals">
+    <h2>New Arrivals</h2>
+    <div class="car-grid">
+      <a href="#" class="car-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToWg6r7tj2XTAI7TQwaY0dkTG9yTbqBr_ccg&s" alt="Car 1" />
+        <div class="car-card-content">
+          <h3>Toyota Supra</h3>
+          <p>Stylish and efficient for urban driving.</p>
+        </div>
+      </a>
+      <a href="#" class="car-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9DrkOxWsf-sgR8R5BVKDhxiKXaE-6Vb1kMw&s" alt="Car 2" />
+        <div class="car-card-content">
+          <h3>Ford Mustang</h3>
+          <p>Designed for comfort and performance.</p>
+        </div>
+      </a>
+      <a href="#" class="car-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk9Q-mMS9R45h7gnS_gMJdFda1MfBAN111hA&s" alt="Car 3" />
+        <div class="car-card-content">
+          <h3>Jaguar F-Type</h3>
+          <p>A perfect choice for families and travel.</p>
+        </div>
+      </a>
+      <a href="#" class="car-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKGHgT3G6qrC7qT6Kufbi9v1AlAN8APu0GWg&s" alt="Car 4" />
+        <div class="car-card-content">
+          <h3>Nissan GTR</h3>
+          <p>Powerful, reliable, and built to last.</p>
+        </div>
+      </a>
+      <a href="#" class="car-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJcdk4fJGId8OzC5CPn44ukPkoiWJTMFnOEg&s" alt="Car 5" />
+        <div class="car-card-content">
+          <h3>Tesla Model 3</h3>
+          <p>Sporty design with advanced features.</p>
+        </div>
+      </a>
+      <a href="#" class="car-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4gX39veg1sjshLq_JQq-h_DsE1BVvxcslHA&s" alt="Car 6" />
+        <div class="car-card-content">
+          <h3>Honda CRV</h3>
+          <p>Efficiency and style in one package.</p>
+        </div>
+      </a>
+    </div>
+  </section>
+ 
+    <!-- Section 3: Happy Customers -->
+  <section class="testimonials">
+    <h2>Happy Customers</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <h4>Jane Doe</h4>
+        <p>Absolutely love my new car! The process was smooth and the staff was incredibly helpful.</p>
+      </div>
+      <div class="testimonial-card">
+        <h4>John Smith</h4>
+        <p>They made buying a car stress-free and enjoyable. Highly recommend this dealership.</p>
+      </div>
+      <div class="testimonial-card">
+        <h4>Maria Lopez</h4>
+        <p>Top-notch service and great pricing. I couldn’t be happier with my purchase.</p>
+      </div>
+      <div class="testimonial-card">
+        <h4>Ali Khan</h4>
+        <p>Excellent after-sales support and a wide selection of vehicles. 10/10 experience.</p>
+      </div>
+      <div class="testimonial-card">
+        <h4>Sophie Turner</h4>
+        <p>Great experience from start to finish. I’ll definitely be coming back for my next car.</p>
+      </div>
+      <div class="testimonial-card">
+        <h4>David Miller</h4>
+        <p>The team was honest, helpful, and very knowledgeable. I'm thrilled with my new ride.</p>
+      </div>
+      <div class="testimonial-card">
+        <h4>Emma Wilson</h4>
+        <p>Very professional staff and excellent customer care. Couldn’t ask for more.</p>
+      </div>
+      <div class="testimonial-card">
+        <h4>Brian Chen</h4>
+        <p>They helped me find exactly what I was looking for — amazing service!</p>
+      </div>
+    </div>
+  </section>
+ 
+    <!-- Section 4: After Purchase Services -->
+  <section class="services">
+    <h2>After Purchase Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🔧</div>
+        <h4>Maintenance</h4>
+        <p>Regular service to keep your vehicle running smoothly.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🛡️</div>
+        <h4>Warranty</h4>
+        <p>Comprehensive coverage for your peace of mind.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🚗</div>
+        <h4>Roadside Assistance</h4>
+        <p>24/7 support for breakdowns or emergencies.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔁</div>
+        <h4>Parts Replacement</h4>
+        <p>Quality parts replacement with manufacturer approval.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📝</div>
+        <h4>Vehicle Inspection</h4>
+        <p>Thorough post-sale checks and evaluations.</p>
+      </div>
+    </div>
+  </section>
+ 
+ 
+    <!-- Section 5: Contact Us -->
+  <section class="contact">
+    <h2>Contact Us</h2>
+    <form class="contact-form">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your name" required />
+ 
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Your email" required />
+ 
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="Your message" rows="5" required></textarea>
+ 
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+ 
+    <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-links">
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="#" title="Website">🌐</a>
+        <a href="#" title="Facebook">📘</a>
+        <a href="#" title="Twitter">🐦</a>
+        <a href="#" title="Instagram">📸</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 Your Dealership. All rights reserved.
+    </div>
+  </footer>
 </body>
 </html>
